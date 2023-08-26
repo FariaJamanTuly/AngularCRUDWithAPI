@@ -1,0 +1,76 @@
+<div class="card m-5 p-5">
+  <div class="row">
+
+    <form [formGroup]="loginform" (ngSubmit)="datasubmit()" class="row g-3 needs-validation" (onchange)="xxx()"
+      novalidate>
+      <div class="col-md-6">
+        <label for="fname" class="form-label">First name</label>
+        <input formControlName="fname" type="text" class="form-control" id="fname" value="Mark" required>
+
+        <div *ngIf="formvaluecontriol('fname').invalid &&
+            (formvaluecontriol('fname').dirty ||
+            formvaluecontriol('fname').touched)">
+          <div *ngIf="formvaluecontriol('fname').errors?.['required']" class="text-danger">
+            *First Name Is Required
+          </div>
+          <div *ngIf="formvaluecontriol('fname').errors?.['maxlength']" class="text-danger">
+            *Max Length is 20
+          </div>
+          <div *ngIf="formvaluecontriol('fname').errors?.['minlength']" class="text-danger">
+            *Min Length is 5
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <label for="lname" class="form-label">Last name</label>
+        <input formControlName="lname" type="text" class="form-control" id="lname" value="Otto" required>
+        <div *ngIf="formvaluecontriol('lname').invalid &&
+                  (formvaluecontriol('lname').dirty ||
+                  formvaluecontriol('lname').touched)">
+          <div *ngIf="formvaluecontriol('lname').errors?.['required']" class="text-danger">
+            *Last Name Is Required
+          </div>
+          <div *ngIf="formvaluecontriol('lname').errors?.['maxlength']" class="text-danger">
+            *Max Length is 20
+          </div>
+          <div *ngIf="formvaluecontriol('lname').errors?.['minlength']" class="text-danger">
+            *Min Length is 3
+          </div>
+          <!-- <div *ngIf="formvaluecontriol('lname').errors?.['pattern']" class="text-danger">
+            *Field has degit
+          </div> -->
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <label for="email" class="form-label">Email</label>
+        <input formControlName="email" type="Email" class="form-control" id="email" value="Otto@gmail.com" required>
+        <div *ngIf="formvaluecontriol('email').invalid &&
+                          (formvaluecontriol('email').dirty ||
+                          formvaluecontriol('email').touched)">
+          <div *ngIf="formvaluecontriol('email').errors?.['required']" class="text-danger">
+            *Email Is Required
+          </div>
+          <div *ngIf="formvaluecontriol('email').errors?.['email']" class="text-danger">
+            *Not a Valid Email
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <button class="btn btn-primary" type="submit">Submit
+          form</button>
+        <div *ngIf="isError" class="text-danger">
+          *Fill the form Perfectly
+        </div>
+        <!-- [disabled]="loginform.invalid" -->
+      </div>
+    </form>
+  </div>
+</div>
+<div>
+  <div *ngFor="let item of data">
+    {{item|json}}
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<p>From Parent to Child</p>
+<div *ngFor="let item of fruit" class="m-5">
+  <app-monaem data={{item}} (datapass)="onrecived($event)"></app-monaem>
+  <!-- <input type="button" value="XYZ" class="btn btn-primary"/> -->
+</div>
+<div>
+  <h3>Show Amount</h3>
+  {{data|json}}
+</div>
+
+<!-- <button (click)="datapush()">Show</button>
+{{d|json}} -->
